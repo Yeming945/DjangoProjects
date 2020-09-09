@@ -2,7 +2,7 @@
 <div class='container'>
     <nav class='navbar navbar-default' role='navigation'>
         <div class='navbar-header'>
-            <a class='navbar-brand' href="http://www.itdiffer.com"><img src="{% static '/images/logo.png' %}"
+            <a class='navbar-brand' href="{% url 'blog:blog_title' %}"><img src="{% static '/images/logo.png' %}"
                     width='100px'></a>
         </div>
         <div>
@@ -10,7 +10,7 @@
                 <li><a href="{% url 'blog:blog_title' %}">BLOG</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">LOGIN</a></li>
+                <li><a href="{% url 'account:user_login' %}">LOGIN</a></li>
             </ul>
         </div>
     </nav>
