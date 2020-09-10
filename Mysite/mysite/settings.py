@@ -125,4 +125,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-LOGIN_REDIRECT_URL = '/blog/'
+LOGIN_REDIRECT_URL = '/blog/'  # 使用Django内置登录视图登录后的重定向位置

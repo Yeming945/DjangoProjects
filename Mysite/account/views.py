@@ -1,6 +1,6 @@
-from cmath import log
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.urls import reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 
@@ -14,7 +14,7 @@ def user_login(request):
                 username=cd['username'], password=cd['password'])  # 用户认证
             if user:  # 认证通过返回实例对象
                 login(request, user)  # 进行登录
-                return HttpResponse('Wellcome You. You have been authenticated successfully')
+                return HttpResponseRedirect(reverse('blog')) # 认证成功后重定向到主页
             else:  # 不通过返回None
                 return HttpResponse("Sorry. Your username or password is not right.")
         else:
