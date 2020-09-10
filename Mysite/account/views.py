@@ -2,7 +2,6 @@ from cmath import log
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from requests.api import request
 from .forms import LoginForm
 
 
