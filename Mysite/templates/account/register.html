@@ -12,23 +12,33 @@
     <form class="form-horizontal" action="{% url 'account:user_register' %}" method="POST">
         {% csrf_token %}
         <div class="form-group">
-            <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label" style="color:red">
-                <span class="glyphicon glyphicon-user"></span>Username</label>
+            <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label">
+                <span class="glyphicon "></span>Username</label>
             <div class="col-md-6 text-left">{{ form.username }}</div>
         </div>
         <div class="form-group">
-            <label for="{{ form.email.id_for_label }}" class="col-md-5 control-label" style="color:blue">
-                <span class="glyphicon glyphicon-floppy-open"></span>Email</label>
+            <label for="{{ form.email.id_for_label }}" class="col-md-5 control-label">
+                <span class="glyphicon "></span>Email</label>
             <div class="col-md-6 text-left">{{ form.email }}</div>
         </div>
         <div class="form-group">
-            <label for="{{ form.password.id_for_label }}" class="col-md-5 control-label" style="color:blue">
-                <span class="glyphicon glyphicon-floppy-open"></span>Password</label>
+            <label for="{{ form.birth.id_for_label }}" class="col-md-5 control-label">
+                <span class="glyphicon "></span>Birth</label>
+            <div class="col-md-6 text-left">{{ profile.birth }}</div>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.phone.id_for_label }}" class="col-md-5 control-label" >
+                <span class="glyphicon"></span>Phone</label>
+            <div class="col-md-6 text-left">{{ profile.phone }}</div>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}" class="col-md-5 control-label" >
+                <span class="glyphicon "></span>Password</label>
             <div class="col-md-6 text-left">{{ form.password }}</div>
         </div>
         <div class="form-group">
-            <label for="{{ form.password.id_for_label }}" class="col-md-5 control-label" style="color:blue">
-                <span class="glyphicon glyphicon-floppy-open"></span>Confirm Password</label>
+            <label for="{{ form.password.id_for_label }}" class="col-md-5 control-label">
+                <span class="glyphicon"></span>Confirm Password</label>
             <div class="col-md-6 text-left">{{ form.password2 }}</div>
         </div>
         <input type="submit" value="Register" class='btn btn-primary btn-lg'>
