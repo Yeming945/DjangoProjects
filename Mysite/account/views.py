@@ -1,9 +1,13 @@
+from django.http import request
 from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 from .forms import LoginForm, ResgitrationForm, UserProfileForm
+from .models import UserProfile, UserInfo
 
 
 def user_login(request):
@@ -46,3 +50,12 @@ def register(request):
         user_form = ResgitrationForm()
         userprofile_form = UserProfileForm()
         return render(request, 'account/register.html', {'form': user_form, 'profile': userprofile_form})
+
+
+@login_required
+def myself(request):
+    userprofile = UserProfile.objects.get(user=request.user) if hasattr(
+        request.user, 'userprofile') else UserProfile.objects.create(user=request.user)
+    userinfo = UserInfo.objects.get(user=request.user) if hasattr(
+        request.user, 'userinfo') else UserInfo.objects.create(user=request.user)
+    return render(request, 'account/myself.html', {'user': request.user, 'userinfo': userinfo, 'userprofile': userprofile})
